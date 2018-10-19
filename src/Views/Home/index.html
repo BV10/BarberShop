@@ -91,7 +91,17 @@
             <h2>Фотогалерея</h2>
             <div class="gallery-container">
                 <figure class="gallery-content">
-                    <a href="#"><img src="img/studio.jpg" alt="Интерьер"></a>
+                    <ul class="slides">
+                        <li class="slide slide-show">
+                            <img src="img/studio.jpg" alt="Интерьер">
+                        </li>
+                        <li class="slide">
+                            <img src="img/entrance-barber-shop.jpg" alt="Вход в Барбер Шоп">
+                        </li>
+                        <li class="slide">
+                            <img src="img/process-barber-shop.jpg" alt="Процесс стрижки">
+                        </li>
+                    </ul>
                     <button class="button gallery-button gallery-button-back">Назад</button>
                     <button class="button gallery-button gallery-button-next">Вперед</button>
                 </figure>
@@ -123,19 +133,22 @@
             <form class="appointment-form" method="post">
                 <p class="appointment-item">
                     <label for="appointment-date">Дата</label>
-                    <input id="appointment-date" type="text" placeholder="08.10.2017" name="date" value="">
+                    <input id="appointment-date" type="text" placeholder="08.10.2017" name="date" value=""
+                    required>
                 </p>
                 <p class="appointment-item">
                     <label for="appointment-time">Время</label>
-                    <input id="appointment-time" type="text" placeholder="10:00" name="time" value="">
+                    <input id="appointment-time" type="text" placeholder="10:00" name="time" value="" required>
                 </p>
                 <p class="appointment-item">
                     <label for="appointment-name">Ваше имя</label>
-                    <input id="appointment-name" type="text" placeholder="Борода" name="name" value="">
+                    <input id="appointment-name" type="text" placeholder="Бодя" name="name" value=""
+                           required pattern="[A-Z a-z]{2,}">
                 </p>
                 <p class="appointment-item">
                     <label for="appointment-phone">Телефон</label>
-                    <input id="appointment-phone" type="tel" placeholder="+380990775851" name="phone" value="">
+                    <input id="appointment-phone" type="tel" placeholder="+380990775851" name="phone" value=""
+                    required pattern="\+380\d{9}">
                 </p>
                 <button class="button" type="submit">Отправить</button>
             </form>
@@ -221,11 +234,14 @@
     <p>
         <img src="img/map.jpg" alt="Офис компании по адресу ул. Мира 10, Днепр">
     </p>
-    <button class="modal-close" type="button"><span class="visually-hidden">Закрыть</span></button>
+    <button class="modal-close modal-close-map" type="button"><span class="visually-hidden">Закрыть</span></button>
 </section>
 <div class="modal-overlay"></div>
 
-<script src="js/popup.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/setup-popup.js"></script>
+<script src="js/validity-login-form.js"></script>
+<script src="js/validity-form-making-appoint.js"></script>
 <script src="js/map.js"></script>
 </body>
 </html>

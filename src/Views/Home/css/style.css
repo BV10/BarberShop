@@ -331,6 +331,28 @@ input[type="radio"].visually-hidden {
     border: 7px solid #ffffff;
 }
 
+.slides {
+    width: 286px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1s;
+}
+
+.slide-show {
+    z-index: 2;
+    opacity: 1;
+}
+
 .gallery img {
     width: 286px;
     height: 164px;
@@ -1177,6 +1199,11 @@ input[type="radio"].visually-hidden {
     cursor: pointer;
 }
 
+.modal-close:hover::before,
+.modal-close:hover::after {
+    background-color: #ffffff;
+}
+
 .modal-close::before,
 .modal-close::after {
     content: "";
@@ -1197,6 +1224,7 @@ input[type="radio"].visually-hidden {
 .modal-close::after {
     transform: rotate(-45deg);
 }
+
 
 .modal-login h2 {
     margin: 0;
@@ -1318,8 +1346,8 @@ input[type="radio"].visually-hidden {
     top: 50%;
     left: 50%;
 
-    width: 766px;
-    height: 561px;
+    width: 829px;
+    height: 531px;
     margin-top: -280px;
     margin-left: -390px;
 
@@ -1340,6 +1368,7 @@ input[type="radio"].visually-hidden {
     z-index: 1;
 
     background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .modal-show {
@@ -1370,3 +1399,7 @@ input[type="radio"].visually-hidden {
     /*font-weight: normal;*/
 }
 
+.modal-close-anyway::before,
+.modal-close-anyway::after {
+    background-color: #ffffff;
+}
