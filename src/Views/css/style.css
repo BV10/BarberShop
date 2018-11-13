@@ -404,6 +404,10 @@ input[type="radio"].visually-hidden {
     justify-content: space-between;
 }
 
+.appointment-form input:focus {
+    border-color: #663d15;
+}
+
 .appointment-item {
     width: 140px;
     margin: 0;
@@ -1379,7 +1383,7 @@ input[type="radio"].visually-hidden {
 
 @keyframes bounce {
     0% {
-        transform: translateY(-2000px);
+        transform: translateY(-1000px);
     }
     70% {
         transform: translateY(30px);
@@ -1393,7 +1397,7 @@ input[type="radio"].visually-hidden {
 }
 
 .modal-error {
-    color: #ff5332;;
+    color: #ff5332;
     text-align: center;
     text-transform: none;
     /*font-weight: normal;*/
@@ -1402,4 +1406,8 @@ input[type="radio"].visually-hidden {
 .modal-close-anyway::before,
 .modal-close-anyway::after {
     background-color: #ffffff;
+}
+
+.error-text-holder input::placeholder {
+    color: #ff5332;
 }

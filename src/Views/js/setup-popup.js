@@ -1,6 +1,7 @@
 (function () {
     var link = document.querySelector(".login-link");
     var popup = document.querySelector(".modal-login");
+    bindFocusesWithPopup(popup);
     var close = document.querySelector(".modal-close");
     var overlay = document.querySelector(".modal-overlay");
 
@@ -10,13 +11,35 @@
         }
     };
 
-    var openPopUp = function() {
+    function bindFocusesWithPopup(popup) {
+        var focusable = popup.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+
+        var firstFocusable = focusable[0];
+        var onPopupTabPress = function (ev) {
+            if (ev.key === "Tab") {
+                ev.preventDefault();
+                firstFocusable.focus();
+                window.removeEventListener("keydown", onPopupTabPress);
+            }
+        };
+        window.addEventListener("keydown", onPopupTabPress);
+
+        var lastFocusable = focusable[focusable.length - 1];
+        lastFocusable.addEventListener("keydown", function (evt) {
+            if (evt.key === "Tab") {
+                evt.preventDefault();
+                firstFocusable.focus();
+            }
+        });
+    }
+
+    var openPopUp = function () {
         popup.classList.add("modal-show");
         overlay.classList.add("modal-show");
         document.addEventListener("keydown", onPopUpEscPress);
     };
 
-    var closePopUp = function() {
+    var closePopUp = function () {
         resetErrorOfLoginOnForm();
         resetErrorOfPasswordOnForm();
         popup.classList.remove("modal-show");
@@ -53,8 +76,8 @@
     });
     // mouse leave overlay
     overlay.addEventListener("mouseout", function (evt) {
-       evt.preventDefault();
-       resetHighlightBtnCloseModal(close);
+        evt.preventDefault();
+        resetHighlightBtnCloseModal(close);
     });
 })();
 

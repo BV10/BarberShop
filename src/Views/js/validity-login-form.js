@@ -1,6 +1,7 @@
 "use strict";
 
 (function () {
+    window.COLOR_ERROR = "#ff5332";
 
     var errorElemInLogin;
 
@@ -14,32 +15,32 @@
     var loginField = document.querySelector(".login-field");
     var userLogin = document.querySelector("#user-login");
 
-    userLogin.addEventListener("blur", function (evt) { // check valid input login on not focus
+    userLogin.addEventListener("blur", function () { // check valid input login on not focus
         if (!userLogin.checkValidity()) { // not valid login
             var errorDescription;
 
             if (userLogin.value.length === 0) {
                 errorDescription = "Логин должен состоять минимум из 5 символов.";
                 errorElemInLogin = createErrorElemWithContent(errorDescription);
-                userLogin.style.borderBottomColor = "#ff5332";
+                userLogin.style.borderBottomColor = COLOR_ERROR;
                 loginField.insertBefore(errorElemInLogin, userLogin);
             }
-            else if (/(^\_)|(^\d)|(^\W)/.test(userLogin.value)) { // begin not letters
+            else if (/(^_)|(^\d)|(^\W)/.test(userLogin.value)) { // begin not letters
                 errorDescription = "Логин должен начинатся с латинской буквы.";
                 errorElemInLogin = createErrorElemWithContent(errorDescription);
-                userLogin.style.borderBottomColor = "#ff5332";
+                userLogin.style.borderBottomColor = "COLOR_ERROR";
                 loginField.insertBefore(errorElemInLogin, userLogin);
             }
             else if (/\W/.test(userLogin.value)) {
                 errorDescription = "Логин должен содержать только буквы, цифры или знак подчеркивания.";
                 errorElemInLogin = createErrorElemWithContent(errorDescription);
-                userLogin.style.borderBottomColor = "#ff5332";
+                userLogin.style.borderBottomColor = COLOR_ERROR;
                 loginField.insertBefore(errorElemInLogin, userLogin);
             }
             else if (/^\w{1,5}$/.test(userLogin.value)) { // empty field or less 5 symbols
                 errorDescription = "Логин должен состоять минимум из 5 символов.";
                 errorElemInLogin = createErrorElemWithContent(errorDescription);
-                userLogin.style.borderBottomColor = "#ff5332";
+                userLogin.style.borderBottomColor = COLOR_ERROR;
                 loginField.insertBefore(errorElemInLogin, userLogin);
             }
         }
@@ -51,9 +52,9 @@
             userLogin.style.borderBottomColor = "";
             errorElemInLogin = undefined;
         }
-    }
+    };
 
-    userLogin.addEventListener("focus", function (evt) {
+    userLogin.addEventListener("focus", function () {
         resetErrorOfLoginOnForm();
     });
 
@@ -61,32 +62,32 @@
     var passwordField = document.querySelector(".password-field");
     var userPassword = document.querySelector("#user-password");
 
-    userPassword.addEventListener("blur", function (evt) { // check valid input login on not focus
+    userPassword.addEventListener("blur", function () { // check valid input login on not focus
         if (!userPassword.checkValidity()) { // not valid login
             var errorDescription;
 
             if (userPassword.value.length === 0) {
                 errorDescription = "Пароль должен состоять минимум из 5 символов.";
                 errorElemInPassword = createErrorElemWithContent(errorDescription);
-                userPassword.style.borderBottomColor = "#ff5332";
+                userPassword.style.borderBottomColor = COLOR_ERROR;
                 passwordField.insertBefore(errorElemInPassword, userPassword);
             }
-            else if (/(^\_)|(^\d)|(^\W)/.test(userPassword.value)) { // begin not letters
+            else if (/(^_)|(^\d)|(^\W)/.test(userPassword.value)) { // begin not letters
                 errorDescription = "Пароль должен начинатся с латинской буквы.";
                 errorElemInPassword = createErrorElemWithContent(errorDescription);
-                userPassword.style.borderBottomColor = "#ff5332";
+                userPassword.style.borderBottomColor = COLOR_ERROR;
                 passwordField.insertBefore(errorElemInPassword, userPassword);
             }
             else if (/\W/.test(userPassword.value)) {
                 errorDescription = "Пароль должен содержать только буквы, цифры или знак подчеркивания.";
                 errorElemInPassword = createErrorElemWithContent(errorDescription);
-                userPassword.style.borderBottomColor = "#ff5332";
+                userPassword.style.borderBottomColor = COLOR_ERROR;
                 passwordField.insertBefore(errorElemInPassword, userPassword);
             }
             else if (/^\w{1,5}$/.test(userPassword.value)) { // empty field or less 5 symbols
                 errorDescription = "Пароль должен состоять минимум из 5 символов.";
                 errorElemInPassword = createErrorElemWithContent(errorDescription);
-                userPassword.style.borderBottomColor = "#ff5332";
+                userPassword.style.borderBottomColor = COLOR_ERROR;
                 passwordField.insertBefore(errorElemInPassword, userPassword);
             }
         }
@@ -100,7 +101,7 @@
         }
     };
 
-    userPassword.addEventListener("focus", function (evt) {
+    userPassword.addEventListener("focus", function () {
         resetErrorOfPasswordOnForm();
     });
 

@@ -134,21 +134,22 @@
                 <p class="appointment-item">
                     <label for="appointment-date">Дата</label>
                     <input id="appointment-date" type="text" placeholder="08.10.2017" name="date" value=""
-                    required>
+                    required pattern="^((0[1-9])|([1-2][0-9])|(30|31))\.((0[1-9])|(10|11|12))\.(\d{4})$">
                 </p>
                 <p class="appointment-item">
                     <label for="appointment-time">Время</label>
-                    <input id="appointment-time" type="text" placeholder="10:00" name="time" value="" required>
+                    <input id="appointment-time" type="text" placeholder="10:00" name="time" value=""
+                           required pattern="^((((0[0-9])|(1[0-9])|(2[0-3])):[0-5][0-9])|(24:00))$">
                 </p>
                 <p class="appointment-item">
                     <label for="appointment-name">Ваше имя</label>
                     <input id="appointment-name" type="text" placeholder="Бодя" name="name" value=""
-                           required pattern="[A-Z a-z]{2,}">
+                           required pattern="([A-Z a-z]|[А-Я а-я]){2,}">
                 </p>
                 <p class="appointment-item">
                     <label for="appointment-phone">Телефон</label>
                     <input id="appointment-phone" type="tel" placeholder="+380990775851" name="phone" value=""
-                    required pattern="\+380\d{9}">
+                    required pattern="^(((((\+38)|(38)|(8))0)|(0))\d{9})$">
                 </p>
                 <button class="button" type="submit">Отправить</button>
             </form>
